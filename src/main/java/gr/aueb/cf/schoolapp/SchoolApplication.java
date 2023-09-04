@@ -1,4 +1,4 @@
-package gr.aueb.cf.schoolapphibernatejax;
+package gr.aueb.cf.schoolapp;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
