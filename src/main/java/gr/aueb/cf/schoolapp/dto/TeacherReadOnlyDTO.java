@@ -4,6 +4,9 @@ public class TeacherReadOnlyDTO extends BaseDTO {
     private String firstname;
     private String lastname;
 
+    public TeacherReadOnlyDTO() {
+    }
+
     public TeacherReadOnlyDTO(Long id, String firstname, String lastname) {
         this.setId(id);
         this.firstname = firstname;
