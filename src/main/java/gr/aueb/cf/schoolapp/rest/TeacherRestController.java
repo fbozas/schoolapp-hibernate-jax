@@ -10,10 +10,7 @@ import gr.aueb.cf.schoolapp.validator.ValidatorUtil;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +41,7 @@ public class TeacherRestController {
 
     @GET
     @Path("/{teacherId}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getTeacher(@PathParam("teacherId") Long teacherId){
         Teacher teacher;
         try{
@@ -60,7 +58,7 @@ public class TeacherRestController {
     @Path("")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addTeacher(TeacherInsertDTO dto, UriInfo uriInfo){
+    public Response addTeacher(TeacherInsertDTO dto,@Context UriInfo uriInfo){
         List<String> errors = ValidatorUtil.validateDTO(dto);
         Teacher teacher;
         if(!errors.isEmpty())
@@ -119,8 +117,8 @@ public class TeacherRestController {
     private TeacherReadOnlyDTO map(Teacher teacher){
         TeacherReadOnlyDTO teacherDto = new TeacherReadOnlyDTO();
         teacherDto.setId(teacher.getId());
-        teacherDto.setFirstname(teacherDto.getFirstname());
-        teacherDto.setLastname(teacherDto.getLastname());
+        teacherDto.setFirstname(teacher.getFirstname());
+        teacherDto.setLastname(teacher.getLastname());
         return teacherDto;
     }
 }

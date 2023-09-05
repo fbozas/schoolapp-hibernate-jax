@@ -13,6 +13,9 @@ public class TeacherUpdateDTO extends BaseDTO {
     @Size(min = 3, max = 50, message = "Lastname length must be between 3-20 chars")
     private String lastname;
 
+    public TeacherUpdateDTO() {
+    }
+
     public TeacherUpdateDTO(Long id, String firstname, String lastname) {
         this.setId(id);
         this.firstname = firstname;

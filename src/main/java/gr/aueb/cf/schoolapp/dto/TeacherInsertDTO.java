@@ -13,6 +13,9 @@ public class TeacherInsertDTO {
     @Size(min = 3, max = 50, message = "Lastname length must be between 3-20 chars")
     private String lastname;
 
+    public TeacherInsertDTO() {
+    }
+
     public TeacherInsertDTO(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
